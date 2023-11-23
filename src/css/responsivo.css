@@ -1,0 +1,52 @@
+@media (max-width: 768px) {
+    body {
+        background-color: #EEEEEE;
+        font-family: "Red Hat Display", sans-serif;
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        justify-content: center;
+        overflow: hidden;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: none;
+        height: 100vh;
+        border-radius: 0px;
+    }
+  
+    .busca input {
+      width: 100%;
+    }
+  
+    .informacao-principal {
+      margin: 150px 50px;
+      text-shadow: #000 1px 1px 10px;
+    }
+  
+    .informacao-principal h1 {
+      font-size: 32px;
+    }
+  
+    .informacao-principal .temperatura {
+      font-size: 68px;
+      margin: 10px 0;
+    }
+  
+    .informacao-principal .condicao {
+      font-size: 25px;
+    }
+  
+    .informacao-secundaria {
+        position: absolute;
+        padding: 10px 20px;
+        bottom: 0;
+        width: 100%;
+        border-radius: 0px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 35px 20px;
+        font-size: 18px;
+    }
+  }
