@@ -1,392 +1,60 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsão do Tempo - Tailan Patrick Rodrigues</title>
 
-    <title>Acaí D' Campos: Faça seu pedido!</title>
-    <!--- Define o ícone do site (favicon)-->
-    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./css/fontawesome.css" />
-    <link rel="stylesheet" href="./css/animate.css" />
-    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./src/css/reset.css">
+
+    <link rel="stylesheet" href="./src/css/estilos.css">
+
+    <link rel="stylesheet" href="./src/css/responsivo.css">
 
 </head>
 
 <body>
+    <main class="container">
 
-    <div class="container-mensagens" id="container-mensagens">
-
-    </div>
-
-    <a class="botao-carrinho animated bounceIn hidden" onclick="cardapio.metodos.abrirCarrinho(true);">
-        <div class="badge-total-carrinho">0</div>
-        <i class="fa fa-shopping-bag"></i>
-    </a>
-
-    <section class="header">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg pl-0 pr-0">
-                <a class="navbar-brand wow zoomIn" href="#">
-                    <img src="./img/logo.png" width="150" class="img-logo" />
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
-                    <span class="navbar-toggler-icon">
-                        <i class="fas fa-bars"></i>
-                    </span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="#navbarNavDropdown">
-                    <ul class="navbar-nav ml-auto mr-auto wow zoomIn">
-
-                        <li class="nav-item"><a href="#cardapio" class="nav-link"><b>Cardápio</b></a></li>
-                        <li class="nav-item"><a href="#sobre" class="nav-link"><b>Sobre Nós</b></a></li>
-
-                    </ul>
-                    <a class="btn btn-white btn-icon wow zoomIn" onclick="cardapio.metodos.abrirCarrinho(true);">
-
-                        Meu Carrinho <span class="icon">
-                            <div class="container-total-carrinho badge-total-carrinho hidden">0</div>
-                            <i class="fa fa-shopping-bag"></i>
-                        </span>
-                    </a>
-                </div>
-            </nav>
+        <div class="busca">
+            <input type="text" id="input-busca" placeholder="Digite uma Cidade" />
+            <button class="btn-busca">
+                <img class="lupa" src="./src/imagens/lupa.png" alt="Lupa da Busca" />
+            </button>
         </div>
-    </section>
 
-    <section class="banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-6">
-                    <div class="d-flex text-banner">
-                        <h1 class="wow fadeInLeft">
-                            <b>Escolha seu <b class="color-primary">Acaí</b>, <b class="color-primary">Sorvete ou
-                                    Milk-Shake</b> da forma que preferir.</b>
-                        </h1>
-                        <p class="wow fadeInLeft delay-02s">
-                            Aproveite nosso cardápio! Escolha o que desejar e receba no conforto da sua casa.
-                        </p>
-                        <div class="wow fadeIn delay-05s">
-                            <a class="btn btn-sm btn-white btn-social mt-4 mr-3" href="https://www.instagram.com/acaidcampos" target="_blank">
-                                <i class="fab fa-instagram social-icon"
-                                    data-tooltip="Veja nosso instagram @acaidcampos"></i>
-                            </a>
-                            <a class="btn btn-sm btn-white btn-social mt-4 mr-3" href="https://www.google.com/maps/place/A%C3%A7a%C3%AD+D+Campos/@-19.8086065,-44.0033492,17z/data=!3m1!4b1!4m6!3m5!1s0xa68f72ac4f4109:0xe58e86716faa49e2!8m2!3d-19.8086116!4d-44.0007743!16s%2Fg%2F11t2fh7nst?entry=ttu" target="_blank">
-                                <i class="fas fab fa-map-marked-alt social-icon" data-tooltip="Onde Estamos "></i>
-                            </a>
-                            <a class="btn btn-sm btn-white btn-social mt-4 botao-whatsapp" target="_blank">
-                                <i class="fab fa-whatsapp social-icon"
-                                    data-tooltip="Chame no Whatsapp para um pedido em específico.."></i>
-                            </a>
+        <div class="informacao-principal">
+            <h1 id="cidade">Use a lupa acima para ver o clima em uma cidade</h1>
 
-                            <a class="btn btn-purple mt-4 mr-3" href="#cardapio">
-                                Ver cardápio
-                            </a>
+            <p class="temperatura" id="temperatura"></p>
 
-                        </div>
-                    </div>
+            <img id="icone-condicao" src="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+                alt="Ícone condição do Clima">
 
-                </div>
-                <div class="col-6">
-                    <div class="card-banner wow fadeIn delay-02s"></div>
-                    <div class="d-flex img-banner wow fadeIn delay-03s">
-                        <img src="./img/tigela-acai (1).png" alt="">
-                    </div>
+            <p class="condicao" id="condicao"></p>
+        </div>
 
-                    <div class="card card-case">
-                        "O açaí mais saboroso da região! "
-                    </div>
-                </div>
+        <div class="informacao-secundaria">
 
+            <div class="humidade">
+                <span>Humidade</span>
+                <span id="humidade">--</span>
+            </div>
+
+            <div class="velocidade-do-vento">
+                <span>Velocidade do Vento</span>
+                <span id="velocidade-do-vento">--</span>
             </div>
 
         </div>
+    </main>
 
-    </section>
-
-    <section class="cardapio" id="cardapio">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-12 text-center mb-5 wow fadeIn">
-                    <span class="hint-title"><b>Cardápio</b></span>
-                    <h1 class="title">
-                        <b>Conheça o nosso cardápio</b>
-                    </h1>
-                </div>
-
-                <div class="col-12 container-menu wow fadeInUp">
-                    <a id="menu-acai-creme" class="btn btn-white btn-sm-2 mr-3 active"
-                        onclick="cardapio.metodos.obterItensCardapio('acai-creme')">
-                        <div class="icon-creme"></div> Creme de Açaí
-
-                    </a>
-                    <a id="menu-acai-vitamina" class="btn btn-white btn-sm-2 mr-3"
-                        onclick="cardapio.metodos.obterItensCardapio('acai-vitamina')">
-                        <div class="icon-vitamina"></div> Vitamina de Açaí
-
-                    </a>
-
-                    <a id="menu-milk-shake" class="btn btn-white btn-sm-2 mr-3 "
-                        onclick="cardapio.metodos.obterItensCardapio('milk-shake')">
-                        <div class="icon-milkshake"></div> Milk-Shake
-
-                    </a>
-
-                </div>
-
-                <div class="col-12">
-                    <div class="row" id="itensCardapio">
-                        <!-- Aqui vão ser gerados os itens do Cardápio-->
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </section>
-
-    <section class="sobre wow fadeInUp delay-05s" id="sobre">
-        <div class="container">
-            <div class="row">
-                <div class="col-5 text-center">
-                    <div class="card-sobre"></div>
-                    <div class="d-flex img-banner">
-                        <img class="img-sobre" src="./img/acai-sobre.webp" alt="">
-                    </div>
-                </div>
-
-                <div class="col-7">
-                    <span class="hint-title"><b>Sobre Nós</b></span>
-                    <h1 class="title">
-                        <b>Quem somos?</b>
-                    </h1>
-
-                    <div class="mb-5">
-                        <p class="paragrafo-sobre">Somos uma acaiteria apaixonada por proporcionar a você a melhor
-                            experiência com açaí. Fundada em 2021, estamos comprometidos em oferecer produtos de alta
-                            qualidade e sabores incríveis para nossos clientes.</p>
-
-                        <p class="paragrafo-sobre">Nosso compromisso com ingredientes frescos e um ambiente acolhedor,
-                            torna a compra em Açaí D' Campos uma experiência memorável.</p>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-3 container-logo-footer wow zoomIn">
-                    <img class="logo-footer" src="./img/logo.png" alt="">
-                </div>
-
-                <div class="col-6 container-texto-footer">
-                    <p class="mb-0">
-                        <b>Cardápio Online - Açaí D' Campos</b> &copy; Todos os direitos reservados
-                    </p>
-                </div>
-
-                <div class="col-3 container-redes-footer">
-                    <a class="btn btn-sm btn-white btn-social mr-3" href="https://www.instagram.com/acaidcampos" target="_blank">
-                        <i class="fab fa-instagram social-icon" data-tooltip="Veja nosso instagram @acaidcampos"></i>
-                    </a>
-                    <a class="btn btn-sm btn-white btn-social mr-3" href="https://www.google.com/maps/place/A%C3%A7a%C3%AD+D+Campos/@-19.8086065,-44.0033492,17z/data=!3m1!4b1!4m6!3m5!1s0xa68f72ac4f4109:0xe58e86716faa49e2!8m2!3d-19.8086116!4d-44.0007743!16s%2Fg%2F11t2fh7nst?entry=ttu" target="_blank">
-                        <i class="fas fab fa-map-marked-alt social-icon" data-tooltip="Onde Estamos "></i>
-                    </a>
-                    <a class="btn btn-sm btn-white btn-social botao-whatsapp" href="#" target="_blank">
-                        <i class="fab fa-whatsapp social-icon"
-                            data-tooltip="Chame no Whatsapp para um pedido em específico.."></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <div class="modal-full animated hidden" id="modalCarrinho">
-        <div class="m-header">
-            <div class="container">
-                <a class="btn btn-white btn-sm float-right" onclick="cardapio.metodos.abrirCarrinho(false)">Fechar</a>
-                <div class="etapas">
-                    <div class="etapa etapa1 active">1</div>
-                    <div class="etapa etapa2">2</div>
-                    <div class="etapa etapa3">3</div>
-                </div>
-                <p class="title-carrinho mt-4">
-                    <b id="lblTituloEtapa">Seu carrinho:</b>
-                    <b id="container-itens-carrinho"> (
-                        <span id="qtd-itens-carrinho">0</span>
-                        <span id="txt-qtd-itens-carrinho"></span>
-                        )
-                    </b>
-                </p>
-            </div>
-        </div>
-
-        <div class="m-body">
-            <div class="container">
-                <div id="itensCarrinho" class="ml-0 mr-0 animated hidden">
-
-                    <!--AQUI SERÃO GERADOS OS ITENS DO CARRINHO-->
-
-
-                </div>
-
-                <div id="localEntrega" class="row mr-0 ml-0 animated fadeIn hidden">
-                    <div class="col-10">
-                        <div class="form-group">
-                            <label for="txtNome">Seu Nome:</label>
-                            <input id="txtNome" type="text" class="form-control" onkeyup="cardapio.metodos.titleize(this)">
-                        </div>
-                    </div>
-
-                    <div class="col-4">
-                        <div class="form-group container-cep">
-                            <label for="txtCEP">CEP:</label>
-                            <input id="txtCEP" type="text" class="form-control" onkeyup="cardapio.metodos.mascaraCep(event)" maxlength="9"/>
-                            <a class="btn btn-purple btn-sm"  onclick="cardapio.metodos.buscarCep()"><i class="fas fa-search"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-8"></div>
-
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label for="txtEndereco">Endereço:</label>
-                            <input id="txtEndereco" type="text" class="form-control">
-                        </div>
-                    </div>
-
-                    <div class="col-4">
-                        <div class="form-group">
-                            <label for="txtBairro">Bairro:</label>
-                            <input id="txtBairro" type="text" class="form-control">
-                        </div>
-                    </div>
-
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="txtNumero">Número:</label>
-                            <input id="txtNumero" type="text" class="form-control">
-                        </div>
-                    </div>
-
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label for="txtCidade">Cidade:</label>
-                            <input id="txtCidade" type="text" class="form-control">
-                        </div>
-                    </div>
-
-                    <div class="col-4">
-                        <div class="form-group">
-                            <label for="txtComplemento">Complemento:</label>
-                            <input id="txtComplemento" type="text" class="form-control">
-                        </div>
-                    </div>
-
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="ddlUf">UF:</label>
-                            <select id="ddlUf" class="form-control">
-                                <option value="-1">...</option>
-                                <option value="MG">MG</option>
-                            </select>
-                        </div>
-                    </div>
-
-
-                </div>
-
-                <div id="resumoCarrinho" class="row mr-0 ml-0 animated fadeIn hidden">
-                    <div class="col-12">
-                        <p class="title-carrinho mt-4">
-                            <b>Itens do pedido:</b>
-                        </p>
-                    </div>
-
-                    <div class="col-12">
-                        <div class="row" id="listaItensResumo">
-
-                            <!--AQUI SERÃO GERADOS OS ITENS DO CARRINHO JÁ PERSONALIZADOS EM FORMA DE RESUMO-->
-
-                        </div>
-                    </div>
-
-                    <div class="col-12">
-                        <p class="title-carrinho mt-4">
-                            <b>Local da Entrega:</b>
-                        </p>
-                    </div>
-
-                    <div class="col-12 endereco resumo">
-                        <div class="img-map">
-                            <i class="fas fa-map-marked-alt"></i>
-                        </div>
-
-                        <div class="dados-produto">
-                            <p class="texto-endereco">
-                                <b id="resumoEndereco"></b>
-                            </p>
-                            <p class="cidade-endereco" id="cidadeEndereco">
-                                
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-
-        <div class="m-footer">
-            <div class="container">
-
-                <div class="container-total text-right mb-4">
-                    <p class="mb-0 texto-total">
-                        <span><b>Total (Sem taxa de Entrega): </b></span>
-                        <b><span class="valor-total" id="lblValorTotal">R$ 0,00</b></span>
-                    </p>
-
-                </div>
-
-                <a onclick="cardapio.metodos.carregarEndereco();" class="btn btn-purple float-right hidden"
-                    id="btnEtapaPedido">
-                    Continuar
-                </a>
-
-                <a onclick="cardapio.metodos.resumoPedido()"  class="btn btn-purple float-right hidden"
-                    id="btnEtapaEndereco">
-                    Revisar Pedido
-                </a>
-
-                <a href="#" class="btn btn-purple float-right" id="btnEtapaResumo" target="_blank">
-                    Enviar Pedido
-                </a>
-
-                <a onclick="cardapio.metodos.voltarEtapa();" class="btn btn-white float-right mr-3" id="btnEtapaVoltar">
-                    Voltar
-                </a>
-            </div>
-        </div>
-    </div>
-
-
-    <script type="text/javascript" src="./js/jquery-1.12.4.min.js"></script>
-    <script type="text/javascript" src="./js/modernizr-3.5.0.min.js"></script>
-    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="./js/popper.min.js"></script>
-    <script type="text/javascript" src="./js/wow.min.js"></script>
-    <script type="text/javascript" src="./js/dados.js" id="dados"></script>
-    <script type="text/javascript" src="./js/app.js" id="appId"></script>
-
-    <script>new WOW().init();</script>
-
+    <script src="./src/js/index.js"></script>
 </body>
 
 </html>
