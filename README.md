@@ -5,7 +5,7 @@ Ele usa uma requisição asssíncrona para obter dados do clima de qualquer cida
 
 Traz as informações de clima na cidade: Temperatura atual, condição do tempo, humidade do ar e velocidade do vento.
 
-Desenvolvido em: HTML5, CSS3 e JavaScript, integrada a WeatherAPI.
+Desenvolvido em: HTML5, CSS3 e JavaScript e integrada a WeatherAPI no JavaScript.
 
 Link da WeatherAPI: https://www.weatherapi.com/
 
