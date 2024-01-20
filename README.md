@@ -1,4 +1,7 @@
-# app-clima
+__APP CLIMA__
+
+__Saiba o Clima em qualquer cidade do mundo direto do navegador!__
+
 Mostra o condições básicas de Clima para uma cidade digitada na pesquisa do app.
 
 Ele usa uma requisição asssíncrona para obter dados do clima de qualquer cidade no mundo.
