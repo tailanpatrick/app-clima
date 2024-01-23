@@ -12,4 +12,5 @@ Desenvolvido em: HTML5, CSS3 e JavaScript e integrada a WeatherAPI no JavaScript
 
 Link da WeatherAPI: https://www.weatherapi.com/
 
+Site se encontra disponível para uso em: https://tailanpatrick.github.io/app-clima/
 
