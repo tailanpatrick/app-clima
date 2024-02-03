@@ -1,7 +1,21 @@
 const chaveDaApi = "cd31863ae267407cb01212131232011";
 const botaoDeBusca = document.querySelector(".btn-busca");
+const inputCidade = document.getElementById("input-busca");
 
 botaoDeBusca.addEventListener("click", async () => {
+    capturarDados();
+});
+
+inputCidade.addEventListener("keypress", async (event) => {
+     
+    event.key == 'Enter' ? capturarDados() 
+    : null
+
+    inputCidade.blur();
+});
+
+
+async function capturarDados() { 
     const cidade = document.getElementById("input-busca").value;
 
     if (!cidade) return;
@@ -9,7 +23,9 @@ botaoDeBusca.addEventListener("click", async () => {
     const dados = await buscarDadosDaCidade(cidade);
 
     if (dados) preencherDadosnaTela(dados, cidade);
-});
+}
+
+
 
 async function buscarDadosDaCidade(cidade) {
     const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${chaveDaApi}&q=${cidade}&aqi=no&lang=pt`;
