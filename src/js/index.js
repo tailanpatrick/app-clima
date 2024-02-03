@@ -1,21 +1,26 @@
 const chaveDaApi = "cd31863ae267407cb01212131232011";
 const botaoDeBusca = document.querySelector(".btn-busca");
 const inputCidade = document.getElementById("input-busca");
+const isMobile = isMobileDevice();
 
 botaoDeBusca.addEventListener("click", async () => {
     capturarDados();
 });
 
 inputCidade.addEventListener("keypress", async (event) => {
-     
-    event.key == 'Enter' ? capturarDados() 
-    : null
 
-    inputCidade.blur();
+    event.key == 'Enter' ? capturarDados() : null;
+
+    isMobile ? inputCidade.blur() : inputCidade.focus();
 });
 
 
-async function capturarDados() { 
+function isMobileDevice() {
+    // Verificar se o agente do usuário corresponde a qualquer padrão de dispositivo móvel
+    return (/Mobi|Android|iPhone|iPad|iPod|Windows Phone|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+}
+
+async function capturarDados() {
     const cidade = document.getElementById("input-busca").value;
 
     if (!cidade) return;
